@@ -58,5 +58,12 @@ def summarizer(article_url):
         # Return the results of the map steps in the output
         return_intermediate_steps=True,
     )
-    
+    # Split documents into chunks
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=4000, chunk_overlap=100)
+    split_docs = text_splitter.split_documents(docs)
+    # Run this chain 
+    start_time = time.time()
+    result = map_reduce_chain.__call__(split_docs, return_only_outputs=True)
+    time_taken = time.time() - start_time
+    return result['output_text'], time_taken
 
