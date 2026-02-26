@@ -26,4 +26,19 @@ def main():
     url = st.text_input("Enter URL of any article", value="")
     # Download audio
     st.divider()
-    
+    if url:
+        with st.status("Processing...", state="running", expanded=True) as status:
+            st.write(" Summarizing Article...")
+            summary, time_taken = summarizer(url)
+            status.update(label=f"Finished - Time Taken: {time_taken} seconds", state="complete")
+            # Show Summary
+            st.subheader("Summary:", anchor=False)
+            st.write(summary)
+
+
+   if __name__=="__main__":
+    main()
+
+
+    # For run :python chain.py
+    # Then: streamlit run frontend.py
