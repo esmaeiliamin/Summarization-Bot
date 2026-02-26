@@ -11,4 +11,15 @@ def add_logo(logo_path, width, height):
 
 
 def main():
+    # Set page title
+    st.set_page_config(page_title="summarizer App", page_icon="-", layout="wide")
+    # Set title
+    st.title("Summarizer", anchor=False)
+    st.header("Summarize Articles using Mistral", anchor=False)
+    st.sidebar.image(add_logo("source...", 250, 250))
+    st.sidebar.title("Navigation")
+    st.sidebar.markdown("- Home")
+    st.sidebar.markdown("- About")
+    st.sidebar.markdown("- Contact")
+    # Input URL
     
