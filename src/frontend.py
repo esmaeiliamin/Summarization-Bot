@@ -22,4 +22,8 @@ def main():
     st.sidebar.markdown("- About")
     st.sidebar.markdown("- Contact")
     # Input URL
+    st.divider()
+    url = st.text_input("Enter URL of any article", value="")
+    # Download audio
+    st.divider()
     
